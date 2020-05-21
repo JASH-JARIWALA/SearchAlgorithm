@@ -37,12 +37,9 @@ for index in range(370104):
     else:
         s['w'] = search
         # print (s['w'])
-    print(a[0]['l'][1]['l'][2]['w'])
+    # print(a[0]['l'][1]['l'][2]['w'])
 
-# np.save('array', a)
-# f = open("simpleArray.py", "w")
-# f.write(str(a))
-# f.close()
+np.save('array', a)
 
 
 
