@@ -7,7 +7,8 @@ import datetime
 # for index in range(370104):    
 #     search =  file.readline().strip().upper()
 #     a.append(search)
-# np.save('testArray', a)
+
+# np.save('testArray', sorted(a))
 
 search = input("Search : ").upper()
 

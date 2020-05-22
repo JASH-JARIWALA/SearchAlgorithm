@@ -1,5 +1,6 @@
 import numpy as np
 import datetime
+import math
 
 search = input("Search : ").upper()
 
@@ -10,49 +11,35 @@ loadTime = (loadEnd - loadStart).microseconds/1000
 
 executionStart = datetime.datetime.now()
 result = []
-
 # #Compare
 l1 = search.upper()
-# l2 = 'Z'
 
-a1 = []
-a2 = []
-
-for i in range(len(l1)):
-    a1.append(ord(l1[i]))
-
-
-
-found = None
-
-min = 0
-max = a.__len__()
-mid = 0
-while 1:    
-    mid = int((min + max)/2)    
+low = 0
+high = a.__len__()-1
+mid = None
+while low < high:    
+    mid = (low + high) // 2
     l2 = a[mid]    
-    for i in range(len(l2)):
-        a2.append(ord(l2[i]))
-
-
-    if l1 == l2[:len(l1)]:
-        print("Equal")
+    if l2[:len(l1)] == search :
         break
     else:        
-        if l1 > l2:
-            min = mid
+        if search < a[mid]:
+            high = mid - 1
         else:
-            max = mid
+            low = mid + 1
+            
     
-
+l = len(search)
 i = mid
 while 1:
     s = a[i]
-    if s[:len(search)] == search :
-        result.append(s) if len(s) <= len(search)+2 else False
-        i-=1
-    else:
+    if s[:l] == search and l>=3:
+        result.append(s)
+    elif s[:l] == search and len(s)<l+3:
+        result.append(s)
+    elif s[:l] != search:
         break
+    i-=1    
 
 result.reverse()
 
@@ -60,11 +47,13 @@ i = mid+1
 
 while  i < len(a):
     s = a[i]
-    if s[:len(search)] == search :
-        result.append(s) if len(s) <= len(search)+2 else False
-        i+=1
-    else:
+    if s[:l] == search and l>=3:
+        result.append(s)
+    elif s[:l] == search and len(s)<l+3:
+        result.append(s)
+    elif s[:l] != search:
         break
+    i+=1
 
 
 
@@ -96,7 +85,7 @@ print("Total : ",str(executionTime+loadTime))
 # for i in range(len(l2)):
 #     a2.append(ord(l2[i]))
 
-# max = l1
+# high = l1
 # if l1 == l2[:len(l1)]:
 #     print("Equal")
 # else:
@@ -104,6 +93,6 @@ print("Total : ",str(executionTime+loadTime))
 #         if a1[i] >= a2[i]:
 #             continue 
 #         else:
-#             max = l2
+#             high = l2
 #             break
-#     print(max)
+#     print(high)
