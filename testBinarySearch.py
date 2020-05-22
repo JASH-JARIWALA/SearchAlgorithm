@@ -33,24 +33,16 @@ while 1:
     l2 = a[mid]    
     for i in range(len(l2)):
         a2.append(ord(l2[i]))
-    l = len(l1) if len(l1)<len(l2) else len(l2)
-    maxValue = l1
-    #Compare
+
+
     if l1 == l2[:len(l1)]:
         print("Equal")
-        # result.append(a[mid])
         break
-    else:
-        for i in range(l):
-            if a1[i] >= a2[i]:
-                continue 
-            else:
-                max_value = l2
-                break
-        if maxValue != l2:
-            max = mid
-        else:
+    else:        
+        if l1 > l2:
             min = mid
+        else:
+            max = mid
     
 
 i = mid
@@ -66,7 +58,7 @@ result.reverse()
 
 i = mid+1
 
-while 1:
+while  i < len(a):
     s = a[i]
     if s[:len(search)] == search :
         result.append(s) if len(s) <= len(search)+2 else False
@@ -88,9 +80,9 @@ print("Total : ",str(executionTime+loadTime))
 
 
 
-# #Compare
-# l1 = 'ABCD'
-# l2 = 'Z'
+# Compare
+# l1 = 'A'
+# l2 = 'ABC'
 
 # a1 = []
 # a2 = []
@@ -105,7 +97,7 @@ print("Total : ",str(executionTime+loadTime))
 #     a2.append(ord(l2[i]))
 
 # max = l1
-# if l1 == l2:
+# if l1 == l2[:len(l1)]:
 #     print("Equal")
 # else:
 #     for i in range(l):

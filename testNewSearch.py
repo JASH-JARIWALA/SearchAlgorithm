@@ -72,7 +72,7 @@ if l <= 3:
 executionEnd = datetime.datetime.now()
 executionTime = (executionEnd - executionStart).microseconds/1000
 
-for r in result:print(r)
+# for r in result:print(r)
 print("Number of words found : ", str(len(result)))
 print("Search time: ", str(executionTime))
 print("Array Load time: ", str(loadTime))
