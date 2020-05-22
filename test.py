@@ -36,7 +36,9 @@ s = a[ord(search[0]) - 65]
 for i in range(l-1):
     s = s['l'][ord(search[i+1]) - 65]
 
+
 # Store
+if s['w'] == search: result.append(s['w']) 
 if l > 3 and s['l'] != None:
     data = s['l'];
     for found in data:
@@ -70,8 +72,8 @@ if l <= 3:
 executionEnd = datetime.datetime.now()
 executionTime = (executionEnd - executionStart).microseconds/1000
 
-# for r in result:print(r)
-print("Result Length : ", str(len(result)))
+for r in result:print(r)
+print("Number of words found : ", str(len(result)))
 print("Search time: ", str(executionTime))
 print("Array Load time: ", str(loadTime))
 print("Total : ",str(executionTime+loadTime))
